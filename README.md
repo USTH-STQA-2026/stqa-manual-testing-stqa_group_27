@@ -23,9 +23,11 @@ Hệ thống cần kiểm thử: **Quản lý mượn sách Thư viện ABC** �
 | # | MSSV | Họ và tên | Vai trò |
 |---|------|-----------|---------|
 | 1 |23BA14006|Nguyễn Thế Anh| Nhóm trưởng |
-| 2 | | | Thành viên |
-| 3 | | | Thành viên |
-| 4 | | | Thành viên |
+| 2 |22BA13306|Nguyễn Ngọc Trung| Thành viên |
+| 3 |23BA14313|Đỗ Thanh Tùng| Thành viên |
+| 4 |23BA14228|Dương Đình Phong| Thành viên |
+| 5 |23BA14143|Ngô Hải Huyền| Thành viên |
+
 
 ---
 
