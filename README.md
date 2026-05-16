@@ -17,12 +17,12 @@ Hệ thống cần kiểm thử: **Quản lý mượn sách Thư viện ABC** �
 | | Thông tin |
 |---|---|
 | **Tên nhóm** | `Nhóm 27` |
-| **Lớp** | `<!-- VD: SE001.P11 -->` |
-| **Học kỳ** | `<!-- VD: HK2 2025-2026 -->` |
+| **Lớp** | `ICT Class 1` |
+| **Học kỳ** | `HK2 2025-2026` |
 
 | # | MSSV | Họ và tên | Vai trò |
 |---|------|-----------|---------|
-| 1 | | | Nhóm trưởng |
+| 1 |23BA14006|Nguyễn Thế Anh| Nhóm trưởng |
 | 2 | | | Thành viên |
 | 3 | | | Thành viên |
 | 4 | | | Thành viên |
