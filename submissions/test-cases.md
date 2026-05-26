@@ -31,6 +31,18 @@
 | Ô nhập có rỗng? | Không rỗng | (giá trị bất kỳ) | Xử lý bình thường |
 | | Rỗng | `""` | Thông báo "Vui lòng nhập..." |
 
+## IDM — Xem danh sách sách (REQ-02)
+
+| Đặc tính (Characteristic) | Phân vùng (Block) | Giá trị đại diện (Value) | Kết quả mong đợi |
+|------------|------------|------------|------------|
+| Vai trò người dùng | Thủ thư | LIB001 | Xem được danh sách sách |
+| Vai trò người dùng | Thành viên | MEM002 | Xem được danh sách sách |
+| Trạng thái sách | Có sẵn | BOOK001 | Hiển thị "Có sẵn" |
+| Trạng thái sách | Đã mượn | BOOK003 | Hiển thị "Đã mượn" |
+| Trạng thái sách | Thất lạc | BOOK007 | Hiển thị "Thất lạc" |
+| Thay đổi trạng thái | Sau khi mượn sách | BOOK001 | Cập nhật realtime thành "Đã mượn" |
+| Thay đổi trạng thái | Sau khi trả sách | BOOK003 | Cập nhật realtime thành "Có sẵn" |
+
 ### IDM — Tìm kiếm sách (REQ-03)
 
 | Đặc tính (Characteristic) | Phân vùng (Block) | Giá trị đại diện (Value) | Kết quả mong đợi |
