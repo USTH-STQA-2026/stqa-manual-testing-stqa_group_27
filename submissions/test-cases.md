@@ -6,8 +6,8 @@
 
 | Thông tin | |
 |---|---|
-| **Nhóm** | `<!-- Tên nhóm -->` |
-| **Ngày tạo** | `<!-- DD/MM/YYYY -->` |
+| **Nhóm** | `Nhóm 27` |
+| **Ngày tạo** | `22/04/2026 -->` |
 | **Hệ thống** | https://stqa.rbc.vn |
 | **Tham chiếu** | SRS v1.0 |
 
