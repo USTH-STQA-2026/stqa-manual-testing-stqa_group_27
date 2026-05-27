@@ -5,10 +5,10 @@
 
 | Thông tin | |
 |---|---|
-| **Nhóm** | `<!-- Tên nhóm -->` |
-| **Ngày thực thi** | `<!-- DD/MM/YYYY -->` |
+| **Nhóm** | `Nhóm 27` |
+| **Ngày thực thi** | `22/04/2026 -->` |
 | **Trình duyệt** | Chrome `<!-- version -->` |
-| **Hệ điều hành** | `<!-- Windows / macOS / Linux -->` |
+| **Hệ điều hành** | `Windows / macOS` |
 
 ---
 

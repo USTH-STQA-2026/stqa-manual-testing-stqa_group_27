@@ -8,8 +8,8 @@
 
 | Mục | Thông tin |
 |-----|----------|
-| **Nhóm** | `<!-- Tên nhóm -->` |
-| **Lớp** | `<!-- VD: SE001.P11 -->` |
+| **Nhóm** | `Nhóm 27` |
+| **Lớp** | `ICT Class 1` |
 | **Ngày báo cáo** | `<!-- DD/MM/YYYY -->` |
 | **Hệ thống kiểm thử** | https://stqa.rbc.vn — v1.0 |
 
