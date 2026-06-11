@@ -22,13 +22,11 @@ Hệ thống cần kiểm thử: **Quản lý mượn sách Thư viện ABC** �
 
 | # | MSSV | Họ và tên | Vai trò |
 |---|------|-----------|---------|
-| 1 |23BA14006|Nguyễn Thế Anh| Nhóm trưởng |
-| 2 |22BA13306|Nguyễn Ngọc Trung| Thành viên |
-| 3 |23BA14313|Đỗ Thanh Tùng| Thành viên |
-| 4 |23BA14228|Dương Đình Phong| Thành viên |
-| 5 |23BA14143|Ngô Hải Huyền| Thành viên |
-
-
+| 1 |23BA14006|Nguyễn Thế Anh| Leader |
+| 2 |22BA13306|Nguyễn Ngọc Trung| Member |
+| 3 |23BA14313|Đỗ Thanh Tùng| Member |
+| 4 |23BA14228|Dương Đình Phong| Member |
+| 5 |23BA14143|Ngô Hải Huyền| Member |
 ---
 
 ## 📖 Trước khi bắt đầu — Đọc gì, ở đâu? / Before You Start
@@ -164,9 +162,7 @@ git push origin main
 | Câu hỏi thường gặp | [docs/faq.md](docs/faq.md) |
 
 ---
-
 ## ⚠️ Quy định quan trọng / Important Rules
-
 - **Không commit dữ liệu nhạy cảm** (token, mật khẩu cá nhân).
 - **Không sao chép bài nhóm khác** — mỗi nhóm phải có test case và bug report riêng.
 - **Mỗi thành viên nên commit ít nhất 1 lần** để thể hiện đóng góp.

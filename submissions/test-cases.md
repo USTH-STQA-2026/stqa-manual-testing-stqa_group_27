@@ -1,177 +1,180 @@
-# Test Cases — Bảng trường hợp kiểm thử
+# Test Cases — Test Case Table
 
-> **Hướng dẫn**: Viết tối thiểu **20 TC** phủ đủ các chức năng chính (REQ-01 → REQ-08).
-> Xem [examples/sample-test-case.md](../examples/sample-test-case.md) để hiểu cách viết TC tốt.
-> Tự tổ chức và phân nhóm test case theo cách hợp lý nhất.
+> **Guideline**: Write a minimum of **20 TC** to cover all main functions (REQ-01 → REQ-08).
+> See [examples/sample-test-case.md](../examples/sample-test-case.md) to understand how to write good TC.
+> Organize and group test cases in the most appropriate way.
 
-| Thông tin | |
+| Information | |
 |---|---|
-| **Nhóm** | `Nhóm 27` |
-| **Ngày tạo** | `22/04/2026 -->` |
-| **Hệ thống** | https://stqa.rbc.vn |
-| **Tham chiếu** | SRS v1.0 |
+| **Group** | `Group 27` |
+| **Created Date** | `22/04/2026` |
+| **System** | https://stqa.rbc.vn |
+| **Reference** | SRS v1.0 |
 
 ---
 
-## Bước 1: Mô hình hóa miền đầu vào — Input Domain Modeling (IDM)
+## Step 1: Input Domain Modeling (IDM)
 
-> 📖 **Textbook:** Chương 6 — *Input Domain Modeling*, Paul Ammann & Jeff Offutt.
+> 📖 **Textbook:** Chapter 6 — *Input Domain Modeling*, Paul Ammann & Jeff Offutt.
 >
-> **Trước khi viết Test Case**, nhóm **phải** phân tích miền đầu vào bằng bảng IDM bên dưới.
-> Mỗi chức năng cần xác định: **Đặc tính (Characteristic)**, **Phân vùng (Block/Partition)**, và **Giá trị đại diện (Value)**.
+> **Before writing Test Cases**, the group **must** analyze the input domain using the IDM table below.
+> Each function needs to identify: **Characteristic**, **Block/Partition**, and **Representative Value**.
 
-### IDM — Đăng nhập (REQ-01)
+### IDM — Login (REQ-01)
 
-| Đặc tính (Characteristic) | Phân vùng (Block) | Giá trị đại diện (Value) | Kết quả mong đợi |
+| Characteristic | Block | Representative Value | Expected Result |
 |---|---|---|---|
-| Email có tồn tại trong DB? | Có | `librarian@library.com` | Đăng nhập thành công |
-| | Không | `noone@email.com` | Thông báo lỗi |
-| Mật khẩu có đúng? | Đúng | `admin123` | Đăng nhập thành công |
-| | Sai | `wrongpass` | Thông báo lỗi |
-| Ô nhập có rỗng? | Không rỗng | (giá trị bất kỳ) | Xử lý bình thường |
-| | Rỗng | `""` | Thông báo "Vui lòng nhập..." |
+| Does email exist in DB? | Yes | `librarian@library.com` | Login successful |
+| | No | `no0ne@email.com` | Error message |
+| Is password correct? | Yes | `admin123` | Login successful |
+| | No | `wrongpass` | Error message |
+| Is input field empty? | No | (any value) | Normal processing |
+| | Yes | `""` | Display "Please enter..." |
 
-## IDM — Xem danh sách sách (REQ-02)
+### IDM — View Book List (REQ-02)
 
-| Đặc tính (Characteristic) | Phân vùng (Block) | Giá trị đại diện (Value) | Kết quả mong đợi |
-|------------|------------|------------|------------|
-| Vai trò người dùng | Thủ thư | LIB001 | Xem được danh sách sách |
-| Vai trò người dùng | Thành viên | MEM002 | Xem được danh sách sách |
-| Trạng thái sách | Có sẵn | BOOK001 | Hiển thị "Có sẵn" |
-| Trạng thái sách | Đã mượn | BOOK003 | Hiển thị "Đã mượn" |
-| Trạng thái sách | Thất lạc | BOOK007 | Hiển thị "Thất lạc" |
-| Thay đổi trạng thái | Sau khi mượn sách | BOOK001 | Cập nhật realtime thành "Đã mượn" |
-| Thay đổi trạng thái | Sau khi trả sách | BOOK003 | Cập nhật realtime thành "Có sẵn" |
-
-### IDM — Tìm kiếm sách (REQ-03)
-
-| Đặc tính (Characteristic) | Phân vùng (Block) | Giá trị đại diện (Value) | Kết quả mong đợi |
+| Characteristic | Block | Representative Value | Expected Result |
 |---|---|---|---|
-| Từ khóa có tồn tại trong DB? | Có (tên sách) | `"Flutter"` | Hiển thị sách chứa "Flutter" |
-| | Có (tên tác giả) | `"Nguyễn"` | Hiển thị sách của tác giả Nguyễn |
-| | Không | `"XYZ123"` | Danh sách rỗng |
-| Phân biệt HOA/thường? | Chữ thường | `"flutter"` | Kết quả giống "Flutter" |
-| | Chữ HOA | `"FLUTTER"` | Kết quả giống "Flutter" |
+| User role | Librarian | LIB001 | User an view book list |
+| User role | Member | MEM002 | User can view book list |
+| Book status | Available | BOOK001 | Display "Available" |
+| Book status | Borrowed | BOOK003 | Display "Borrowed" |
+| Book status | Lost | BOOK007 | Display "Lost" |
+| Status change | After borrowing | BOOK001 | Update realtime to "Borrowed" |
+| Status change | After returning | BOOK003 | Update realtime to "Available" |
 
-### IDM — Mượn sách (REQ-04, REQ-05)
+### IDM — Search Book (REQ-03)
 
-| Đặc tính (Characteristic) | Phân vùng (Block) | Giá trị đại diện (Value) | Kết quả mong đợi |
+| Characteristic | Block | Representative Value | Expected Result |
 |---|---|---|---|
-| Trạng thái sách? | Có sẵn | BOOK001 | Cho phép mượn |
-| | Đang mượn | BOOK003 | Không cho phép |
-| | Thất lạc | BOOK007 | Không cho phép |
-| Trạng thái thành viên? | Hoạt động | MEM002 | Cho phép mượn |
-| | Tạm ngưng | MEM004 | Từ chối, thông báo lỗi |
-| | Hết hạn | MEM005 | Từ chối, thông báo lỗi |
-| Số sách đang mượn? | < 3 (BVA: 0, 1, 2) | MEM006 (0 sách) | Cho phép mượn |
-| | = 3 (BVA: giới hạn) | MEM đã mượn 3 sách | Từ chối, thông báo vượt giới hạn |
+| Does keyword exist in DB? | Yes (book name) | `"Flutter"` | Display books containing "Flutter" |
+| | Yes (author name) | `"Nguyen"` | Display books by author Nguyen |
+| | No | `"XYZ123"` | Empty list |
+| Case sensitive? | Lowercase | `"flutter"` | Same result as "Flutter" |
+| | Uppercase | `"FLUTTER"` | Same result as "Flutter" |
 
-## IDM — Trả sách (REQ-05)
+### IDM — Borrow Book (REQ-04, REQ-05)
 
-| Đặc tính (Characteristic)           | Phân vùng (Block) | Giá trị đại diện (Value) | Kết quả mong đợi                            |
-| ----------------------------------- | ----------------- | ------------------------ | ------------------------------------------- |
-| Thành viên có đang mượn sách không? | Có                | MEM002 - BOOK003         | Cho phép trả sách                           |
-| Thành viên có đang mượn sách không? | Không             | MEM002 - BOOK013         | Không cho phép trả                          |
-| Tình trạng phiếu mượn               | Đúng hạn          | BR003                    | Trả thành công                              |
-| Tình trạng phiếu mượn               | Quá hạn           | BR001                    | Trả thành công và hiển thị cảnh báo quá hạn |
-| Trạng thái sách sau khi trả         | Đang mượn         | BOOK003                  | Chuyển thành "Có sẵn"                       |
+| Characteristic | Block | Representative Value | Expected Result |
+|---|---|---|---|
+| Book status? | Available | BOOK001 | Allow borrow |
+| | Borrowed | BOOK003 | Reject |
+| | Lost | BOOK007 | Reject |
+| Member status? | Active | MEM002 | Allow borrow |
+| | Suspended | MEM004 | Reject, display error |
+| | Expired | MEM005 | Reject, display error |
+| Books borrowed? | < 3 (BVA: 0, 1, 2) | MEM006 (0 books) | Allow borrow |
+| | = 3 (BVA: limit) | Member with 3 books | Reject, exceeded limit |
 
-## IDM — Xử lý sách quá hạn (REQ-06)
+### IDM — Return Book (REQ-05)
 
-| Đặc tính (Characteristic) | Phân vùng (Block)           | Giá trị đại diện (Value) | Kết quả mong đợi                     |
-| ------------------------- | --------------------------- | ------------------------ | ------------------------------------ |
-| Ngày hết hạn (dueDate)    | <= ngày hiện tại            | BR001 (15/09/2024)       | Đánh dấu "Quá hạn"                   |
-| Ngày hết hạn (dueDate)    | > ngày hiện tại             | BR003 (15/10/2024)       | Không đánh dấu quá hạn               |
-| Vai trò người dùng        | Thủ thư                     | LIB001                   | Xem tất cả phiếu quá hạn             |
-| Vai trò người dùng        | Thành viên                  | MEM002                   | Chỉ xem phiếu quá hạn của chính mình |
-| Thao tác kiểm tra quá hạn | Nhấn nút "Kiểm tra quá hạn" | Librarian                | Hệ thống cập nhật trạng thái quá hạn |
+| Characteristic | Block | Representative Value | Expected Result |
+|---|---|---|---|
+| Is member borrowing? | Yes | MEM002 - BOOK003 | Allow return |
+| Is member borrowing? | No | MEM002 - BOOK013 | Reject return |
+| Borrow record status | On time | BR003 | Return successful |
+| Borrow record status | Overdue | BR001 | Return successful with warning |
+| Book status after return | Borrowed | BOOK003 | Change to "Available" |
 
-## IDM — Quản lý thành viên (REQ-07)
+### IDM — Handle Overdue Books (REQ-06)
 
-| Đặc tính (Characteristic) | Phân vùng (Block)           | Giá trị đại diện (Value)                              | Kết quả mong đợi          |
-| ------------------------- | --------------------------- | ----------------------------------------------------- | ------------------------- |
-| Định dạng email           | Hợp lệ                      | [newuser@test.com](mailto:newuser@test.com)           | Tạo thành viên thành công |
-| Định dạng email           | Thiếu ký tự @               | newusertest.com                                       | Hiển thị lỗi email        |
-| Định dạng email           | Thiếu dấu chấm trong domain | newuser@test                                          | Hiển thị lỗi email        |
-| Định dạng email           | Rỗng                        | ""                                                    | Hiển thị lỗi email        |
-| Email đã tồn tại?         | Có                          | [librarian@library.com](mailto:librarian@library.com) | Báo lỗi trùng email       |
-| Email đã tồn tại?         | Không                       | [abc123@test.com](mailto:abc123@test.com)             | Tạo thành viên thành công |
-| Số điện thoại             | Hợp lệ                      | 0987654321                                            | Tạo thành viên thành công |
-| Họ tên                    | Có dữ liệu                  | Nguyễn Văn A                                          | Tạo thành viên thành công |
+| Characteristic | Block | Representative Value | Expected Result |
+|---|---|---|---|
+| Due date | <= today | BR001 (15/09/2024) | Mark "Overdue" |
+| Due date | > today | BR003 (15/10/2024) | Do not mark overdue |
+| User role | Librarian | LIB001 | View all overdue records |
+| User role | Member | MEM002 | View only own overdue records |
+| Check overdue action | Click "Check Overdue" | Librarian | System updates overdue status |
 
-## IDM — Tra cứu phiếu mượn (REQ-08)
+### IDM — Member Management (REQ-07)
 
-| Đặc tính (Characteristic) | Phân vùng (Block) | Giá trị đại diện (Value) | Kết quả mong đợi                     |
-| ------------------------- | ----------------- | ------------------------ | ------------------------------------ |
-| Vai trò người dùng        | Thủ thư           | LIB001                   | Xem tất cả phiếu mượn                |
-| Vai trò người dùng        | Thành viên        | MEM002                   | Chỉ xem phiếu mượn của mình          |
-| Member ID tra cứu         | Tồn tại           | MEM002                   | Hiển thị danh sách phiếu             |
-| Member ID tra cứu         | Không tồn tại     | MEM999                   | Không có dữ liệu hoặc danh sách rỗng |
-| Trạng thái phiếu          | Đang mượn         | BR003                    | Hiển thị đúng trạng thái             |
-| Trạng thái phiếu          | Đã trả            | BR002                    | Hiển thị đúng trạng thái             |
-| Trạng thái phiếu          | Quá hạn           | BR001                    | Hiển thị đúng trạng thái             |
+| Characteristic | Block | Representative Value | Expected Result |
+|---|---|---|---|
+| Email format | Valid | newuser@test.com | Create member successful |
+| Email format | Missing @ | newusertest.com | Display email error |
+| Email format | Missing dot in domain | newuser@test | Display email error |
+| Email format | Empty | "" | Display email error |
+| Email exists? | Yes | librarian@library.com | Display duplicate error |
+| Email exists? | No | abc123@test.com | Create member successful |
+| Phone number | Valid | 0987654321 | Create member successful |
+| Full name | Has data | Nguyen Van Anh | Create member successful |
 
+### IDM — Borrow Record Inquiry (REQ-08)
+
+| Characteristic | Block | Representative Value | Expected Result |
+|---|---|---|---|
+| User role | Librarian | LIB001 | View all borrow records |
+| User role | Member | MEM002 | View only own records |
+| Member ID inquiry | Exists | MEM002 | Display record list |
+| Member ID inquiry | Not exists | MEM999 | Empty or no data |
+| Record status | Borrowing | BR003 | Display correct status |
+| Record status | Returned | BR002 | Display correct status |
+| Record status | Overdue | BR001 | Display correct status |
 
 ## Decision Table — Borrow Book (REQ-04)
 
-| Điều kiện | Rule 1 | Rule 2 | Rule 3 | Rule 4 |
+| Condition | Rule 1 | Rule 2 | Rule 3 | Rule 4 |
 |---|---|---|---|---|
 | Book Available | Y | N | Y | Y |
 | Member Active | Y | Y | N | Y |
 | Borrow Count < 3 | Y | Y | Y | N |
 | Result | Borrow | Reject | Reject | Reject |
 
-> 💡 **Gợi ý kỹ thuật**: Sử dụng **Phân lớp tương đương (EP)** cho các phân vùng rời rạc, **Phân tích giá trị biên (BVA)** cho các phân vùng số (ví dụ: giới hạn 3 sách). Xem textbook §6.1–6.3.
+---
+
+## Step 2: Test Cases
+
+<!-- Organize test case table: can group by function, by REQ, or by business flow — group decides. -->
+<!-- Each TC must map back to at least 1 row in the IDM table in Step 1. -->
+
+| TC ID | Test Objective | Precondition | Steps | Test Data | Expected Result | REQ | Technique |
+| ----- | ------ | ----------- | -------- | --------- | ----------- | ------ | ------ |
+| TC-01 | Login successful with Librarian account | At Login screen | 1. Enter email 2. Enter password 3. Click Login | librarian@library.com / admin123 | Login successful, display name and Librarian role | REQ-01 | EP |
+| TC-02 | Login with non-existent email | At Login screen | Enter non-existent email and any password | noone@email.com / admin123 | Display "Member not found" | REQ-01 | EP |
+| TC-03 | Login with wrong password | At Login screen | Enter valid email and wrong password | librarian@library.com / wrongpass | Display "Incorrect password" | REQ-01 | EP |
+| TC-04 | Login with empty information | At Login screen | Leave email and password empty, click Login | "" | Display "Please enter email and password" | REQ-01 | EP |
+| TC-05 | Member views book list | Logged in as Member | Open Books tab | MEM002 | Display book list | REQ-02 | EP |
+| TC-06 | Librarian views book list | Logged in as Librarian | Open Books tab | LIB001 | Display book list | REQ-02 | EP |
+| TC-07 | Book status updates after borrowing | Book available | Borrow BOOK001 | BOOK001 | Status changes from Available to Borrowed | REQ-02 | EP |
+| TC-08 | Search by book name | Logged in successfully | Enter search keyword | Flutter | Display books containing Flutter | REQ-03 | EP |
+| TC-09 | Search by author name | Logged in successfully | Search author | Nguyen Minh Duc | Display books by author | REQ-03 | EP |
+| TC-10 | Search case-insensitive | Logged in successfully | Search | flutter | Results match Flutter | REQ-03 | EP |
+| TC-11 | Filter by category | Logged in successfully | Select Technology category | Technology | Display only Technology books | REQ-03 | EP |
+| TC-12 | Search with no results | Logged in successfully | Search non-existent keyword | XYZ123 | Display "No books found" | REQ-03 | EP |
+| TC-13 | Borrow book successfully | Active member | Borrow BOOK001 | MEM002 + BOOK001 | Create borrow record successful | REQ-04 | Decision Table |
+| TC-14 | Cannot borrow already borrowed book | BOOK003 is borrowed | Attempt to borrow | BOOK003 | Reject borrow | REQ-04 | Decision Table |
+| TC-15 | Cannot borrow when member suspended | Logged in as MEM004 | Borrow BOOK001 | MEM004 | Display rejection due to suspension | REQ-04 | Decision Table |
+| TC-16 | Cannot borrow when member expired | Logged in as MEM005 | Borrow BOOK001 | MEM005 | Display rejection due to expiration | REQ-04 | Decision Table |
+| TC-17 | Member with 2 books can borrow more | Member has 2 books | Borrow 1 more | Borrow count = 2 | Allow borrow | REQ-04 | BVA |
+| TC-18 | Member with 3 books cannot borrow more | Member has 3 books | Attempt to borrow | Borrow count = 3 | Reject, limit exceeded | REQ-04 | BVA |
+| TC-19 | Check rejection message reason | Members MEM004 and MEM005 | Try to borrow | MEM004/MEM005 | Different messages for suspension vs expiration | REQ-04 | Decision Table |
+| TC-20 | Return borrowed book successfully | Member has borrowed book | Return BOOK003 | BOOK003 | Return successful | REQ-05 | EP |
+| TC-21 | Book status updates after return | Book returned | Check book list | BOOK003 | Status is Available | REQ-05 | EP |
+| TC-22 | Return overdue book | Has overdue record | Return book | BR001 | Display overdue warning | REQ-05 | EP |
+| TC-23 | Librarian checks overdue | Logged in as Librarian | Click "Check Overdue" | BR001 | System scans and updates | REQ-06 | EP |
+| TC-24 | Overdue record marked correctly | Checked overdue | Check BR001 | BR001 | Status = Overdue | REQ-06 | EP |
+| TC-25 | Member sees own overdue record | Logged in as MEM002 | Open borrow list | BR001 | Display Overdue status | REQ-06 | EP |
+| TC-26 | Add member with valid email | Logged in as Librarian | Open Add Member | abc@test.com | Create successful | REQ-07 | EP |
+| TC-27 | Email missing @ symbol | Logged in as Librarian | Create member | abctest.com | Display email error | REQ-07 | EP |
+| TC-28 | Email missing dot in domain | Logged in as Librarian | Create member | abc@test | Display email error | REQ-07 | EP |
+| TC-29 | Standard valid email | Logged in as Librarian | Create member | abc@domain.com | Create successful | REQ-07 | EP |
+| TC-30 | Cannot use duplicate email | Logged in as Librarian | Create member | librarian@library.com | Display duplicate error | REQ-07 | EP |
+| TC-31 | Librarian views all borrow records | Logged in as librarian | Open Borrow/Return tab | LIB001 | Display all records | REQ-08 | EP |
+| TC-32 | Member views only own records | Logged in as MEM002 | Open Borrow/Return tab | MEM002 | Display only MEM002 records | REQ-08 | EP |
+| TC-33 | Member cannot view other's records | Logged in as MEM002 | Search MEM003 | MEM003 | No data displayed for MEM003 | REQ-08 | EP |
 
 ---
 
-## Bước 2: Test Cases
+## Summary
 
-<!-- Tự tổ chức bảng test case: có thể chia nhóm theo chức năng, theo REQ, hoặc theo luồng nghiệp vụ — tùy nhóm quyết định. -->
-<!-- Mỗi TC phải ánh xạ ngược về ít nhất 1 dòng trong bảng IDM ở Bước 1. -->
-
-| Mã TC | Mục tiêu kiểm thử                              | Tiền điều kiện              | Bước thực hiện                                   | Dữ liệu đầu vào                                                   | Kết quả mong đợi                                      | REQ    | Kỹ thuật       |
-| ----- | ---------------------------------------------- | --------------------------- | ------------------------------------------------ | ----------------------------------------------------------------- | ----------------------------------------------------- | ------ | -------------- |
-| TC-01 | Đăng nhập thành công với tài khoản Thủ thư     | Đang ở màn hình Login       | 1. Nhập email 2. Nhập mật khẩu 3. Nhấn Đăng nhập | [librarian@library.com](mailto:librarian@library.com) / admin123  | Đăng nhập thành công, hiển thị tên và vai trò Thủ thư | REQ-01 | EP             |
-| TC-02 | Đăng nhập với email không tồn tại              | Đang ở màn hình Login       | Nhập email không tồn tại và mật khẩu bất kỳ      | [noone@email.com](mailto:noone@email.com) / admin123              | Hiển thị "Không tìm thấy thành viên"                  | REQ-01 | EP             |
-| TC-03 | Đăng nhập với mật khẩu sai                     | Đang ở màn hình Login       | Nhập email hợp lệ và mật khẩu sai                | [librarian@library.com](mailto:librarian@library.com) / wrongpass | Hiển thị "Mật khẩu không đúng"                        | REQ-01 | EP             |
-| TC-04 | Đăng nhập khi bỏ trống thông tin               | Đang ở màn hình Login       | Để trống email và mật khẩu, nhấn Đăng nhập       | ""                                                                | Hiển thị "Vui lòng nhập email và mật khẩu"            | REQ-01 | EP             |
-| TC-05 | Thành viên xem danh sách sách                  | Đăng nhập bằng Member       | Mở tab Sách                                      | MEM002                                                            | Hiển thị danh sách sách                               | REQ-02 | EP             |
-| TC-06 | Thủ thư xem danh sách sách                     | Đăng nhập bằng Librarian    | Mở tab Sách                                      | LIB001                                                            | Hiển thị danh sách sách                               | REQ-02 | EP             |
-| TC-07 | Trạng thái sách cập nhật sau khi mượn          | Có sách Available           | Mượn BOOK001                                     | BOOK001                                                           | Trạng thái đổi từ Có sẵn sang Đã mượn                 | REQ-02 | EP             |
-| TC-08 | Tìm kiếm theo tên sách                         | Đăng nhập thành công        | Nhập từ khóa tìm kiếm                            | Flutter                                                           | Hiển thị sách có chứa Flutter                         | REQ-03 | EP             |
-| TC-09 | Tìm kiếm theo tác giả                          | Đăng nhập thành công        | Tìm kiếm tác giả                                 | Nguyễn Minh Đức                                                   | Hiển thị sách của tác giả                             | REQ-03 | EP             |
-| TC-10 | Tìm kiếm không phân biệt hoa thường            | Đăng nhập thành công        | Tìm kiếm                                         | flutter                                                           | Kết quả giống Flutter                                 | REQ-03 | EP             |
-| TC-11 | Lọc theo thể loại                              | Đăng nhập thành công        | Chọn thể loại Công nghệ                          | Công nghệ                                                         | Chỉ hiển thị sách Công nghệ                           | REQ-03 | EP             |
-| TC-12 | Tìm kiếm không có kết quả                      | Đăng nhập thành công        | Tìm kiếm từ khóa không tồn tại                   | XYZ123                                                            | Hiển thị "Không tìm thấy sách"                        | REQ-03 | EP             |
-| TC-13 | Mượn sách thành công                           | Thành viên hoạt động        | Mượn BOOK001                                     | MEM002 + BOOK001                                                  | Tạo phiếu mượn thành công                             | REQ-04 | Decision Table |
-| TC-14 | Không cho mượn sách đã được mượn               | BOOK003 đang được mượn      | Thực hiện mượn                                   | BOOK003                                                           | Từ chối mượn sách                                     | REQ-04 | Decision Table |
-| TC-15 | Không cho mượn khi thành viên bị tạm ngưng     | Đăng nhập MEM004            | Mượn BOOK001                                     | MEM004                                                            | Thông báo từ chối do tạm ngưng                        | REQ-04 | Decision Table |
-| TC-16 | Không cho mượn khi thành viên hết hạn          | Đăng nhập MEM005            | Mượn BOOK001                                     | MEM005                                                            | Thông báo từ chối do hết hạn                          | REQ-04 | Decision Table |
-| TC-17 | Thành viên đang mượn 2 sách được mượn thêm     | Thành viên có 2 sách        | Mượn thêm 1 sách                                 | Borrow count = 2                                                  | Cho phép mượn                                         | REQ-04 | BVA            |
-| TC-18 | Thành viên đã mượn 3 sách không được mượn thêm | Thành viên có 3 sách        | Mượn thêm sách                                   | Borrow count = 3                                                  | Từ chối, vượt giới hạn                                | REQ-04 | BVA            |
-| TC-19 | Kiểm tra thông báo đúng lý do từ chối          | Thành viên MEM004 và MEM005 | Thử mượn sách                                    | MEM004/MEM005                                                     | Thông báo khác nhau cho tạm ngưng và hết hạn          | REQ-04 | Decision Table |
-| TC-20 | Trả sách đang mượn thành công                  | Thành viên đang mượn sách   | Trả BOOK003                                      | BOOK003                                                           | Trả thành công                                        | REQ-05 | EP             |
-| TC-21 | Sau khi trả trạng thái sách cập nhật           | Đã trả sách                 | Kiểm tra danh sách sách                          | BOOK003                                                           | Trạng thái Có sẵn                                     | REQ-05 | EP             |
-| TC-22 | Trả sách quá hạn                               | Có phiếu quá hạn            | Trả sách                                         | BR001                                                             | Hiển thị cảnh báo quá hạn                             | REQ-05 | EP             |
-| TC-23 | Thủ thư thực hiện kiểm tra quá hạn             | Đăng nhập Librarian         | Nhấn "Kiểm tra quá hạn"                          | BR001                                                             | Hệ thống quét và cập nhật                             | REQ-06 | EP             |
-| TC-24 | Phiếu quá hạn được đánh dấu đúng               | Đã chạy kiểm tra quá hạn    | Kiểm tra BR001                                   | BR001                                                             | Trạng thái = Quá hạn                                  | REQ-06 | EP             |
-| TC-25 | Thành viên thấy phiếu quá hạn của mình         | Đăng nhập MEM002            | Mở danh sách phiếu mượn                          | BR001                                                             | Hiển thị trạng thái Quá hạn                           | REQ-06 | EP             |
-| TC-26 | Thêm thành viên với email hợp lệ               | Đăng nhập Librarian         | Mở Thêm thành viên                               | [abc@test.com](mailto:abc@test.com)                               | Tạo thành công                                        | REQ-07 | EP             |
-| TC-27 | Email thiếu @                                  | Đăng nhập Librarian         | Tạo thành viên                                   | abctest.com                                                       | Hiển thị lỗi email                                    | REQ-07 | EP             |
-| TC-28 | Email thiếu dấu chấm trong domain              | Đăng nhập Librarian         | Tạo thành viên                                   | abc@test                                                          | Hiển thị lỗi email                                    | REQ-07 | EP             |
-| TC-29 | Email hợp lệ chuẩn                             | Đăng nhập Librarian         | Tạo thành viên                                   | [abc@domain.com](mailto:abc@domain.com)                           | Tạo thành công                                        | REQ-07 | EP             |
-| TC-30 | Không cho phép email trùng                     | Đăng nhập Librarian         | Tạo thành viên                                   | [librarian@library.com](mailto:librarian@library.com)             | Hiển thị lỗi trùng email                              | REQ-07 | EP             |
-| TC-31 | Thủ thư xem tất cả phiếu mượn                  | Đăng nhập Librarian         | Mở tab Mượn/Trả                                  | LIB001                                                            | Hiển thị tất cả phiếu                                 | REQ-08 | EP             |
-| TC-32 | Thành viên chỉ xem phiếu của mình              | Đăng nhập MEM002            | Mở tab Mượn/Trả                                  | MEM002                                                            | Chỉ hiển thị phiếu của MEM002                         | REQ-08 | EP             |
-| TC-33 | Thành viên không được xem phiếu người khác     | Đăng nhập MEM002            | Tra cứu MEM003                                   | MEM003                                                            | Không hiển thị dữ liệu của MEM003                     | REQ-08 | EP             |
-
-
----
-
-## Tổng hợp
-
-| Nhóm chức năng | Số TC | REQ phủ | Kỹ thuật IDM áp dụng |
+| Function Group | # TC | REQ Covered | IDM Technique Applied |
 |----------------|-------|---------|----------------------|
-| | | | |
-| **Tổng** | **<!-- ≥ 20 -->** | | |
+| Login | 4 | REQ-01 | EP (valid email, correct password, empty input) |
+| View Book List | 3 | REQ-02 | EP (role, book status, realtime update) |
+| Search Book | 5 | REQ-03 | EP (book name, author, case-insensitive, category, no result) |
+| Borrow Book | 7 | REQ-04 | Decision Table (3 conditions) + BVA (limit 3 books) |
+| Return Book | 3 | REQ-05 | EP (successful return, status update, overdue return) |
+| Handle Overdue | 3 | REQ-06 | EP (check due date, role, check overdue) |
+| Member Management | 5 | REQ-07 | EP (valid/invalid email format, duplicate, phone, name) |
+| Borrow Record Inquiry | 3 | REQ-08 | EP (role, member ID, record status) |
+| **TOTAL** | **33** | **REQ-01 → REQ-08** | **EP (26 TC), Decision Table (5 TC), BVA (2 TC)** |
