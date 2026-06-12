@@ -1,4 +1,4 @@
-# Bug Reports — Bug Report
+<img width="3840" height="1080" alt="image" src="https://github.com/user-attachments/assets/85966237-3c63-462d-8c28-5bf2ebe9fd4d" /># Bug Reports — Bug Report
 
 | Information | |
 | --- | --- |
@@ -18,6 +18,12 @@
 | **Found By** | Ngo Hai Huyen |
 | **Found Date** | 11/06/2026 |
 | **Status** | Open |
+Enviroment:
+
+Browser: Chrome Version 148.0.7778.179
+OS: Window 11
+UI Language: English
+
 
 **Title:**
 System allows member to borrow book when limit of 3 books is already reached.
@@ -54,6 +60,11 @@ Check number of borrowed books before creating new borrow record.
 | **Found By** | Do Thanh Tung |
 | **Found Date** | 11/06/2026 |
 | **Status** | Open |
+Enviroment:
+
+Browser: Chrome Version 148.0.7778.179
+OS: Window 11
+UI Language: English
 
 **Title:**
 Rejection message for borrowing does not display correct reason.
@@ -89,6 +100,11 @@ Separate error cases and display correct message according to SRS.
 | **Found By** | Nguyen Ngoc Trung |
 | **Found Date** | 11/06/2026 |
 | **Status** | Open |
+Enviroment:
+
+Browser: Chrome Version 148.0.7778.179
+OS: Window 11
+UI Language: English
 
 **Title:**
 No warning displayed when returning overdue book.
@@ -124,6 +140,11 @@ Compare return date with dueDate and display corresponding warning.
 | **Found By** | Nguyen The Anh |
 | **Found Date** | 11/06/2026 |
 | **Status** | Open |
+Enviroment:
+
+Browser: Chrome Version 148.0.7778.179
+OS: Window 11
+UI Language: English
 
 **Title:**
 "Check Overdue" function does not mark overdue borrow records.
@@ -159,6 +180,11 @@ Review logic for updating overdue status.
 | **Found By** | Duong Dinh Phong |
 | **Found Date** | 11/06/2026 |
 | **Status** | Open |
+Enviroment:
+
+Browser: Chrome Version 148.0.7778.179
+OS: Window 11
+UI Language: English
 
 **Title:**
 Cannot add new member with valid data.
@@ -195,6 +221,11 @@ Review member data saving process.
 | **Found By** | Duong Dinh Phong |
 | **Found Date** | 11/06/2026 |
 | **Status** | Open |
+Enviroment:
+
+Browser: Chrome Version 148.0.7778.179
+OS: Window 11
+UI Language: English
 
 **Title:**
 Invalid email (missing dot in domain) is still accepted.
@@ -231,6 +262,11 @@ Add email format validation according to SRS.
 | **Found By** | Do Thanh Tung |
 | **Found Date** | 11/06/2026 |
 | **Status** | Open |
+Enviroment:
+
+Browser: Chrome Version 148.0.7778.179
+OS: Window 11
+UI Language: English
 
 **Title:**
 Valid email is rejected when creating new member.
@@ -267,6 +303,11 @@ Review email format validation logic.
 | **Found By** | Nguyen Ngoc Trung |
 | **Found Date** | 11/06/2026 |
 | **Status** | Open |
+Enviroment:
+
+Browser: Chrome Version 148.0.7778.179
+OS: Window 11
+UI Language: English
 
 **Title:**
 Error message for duplicate email is inaccurate.
@@ -302,6 +343,11 @@ Display specific message according to SRS requirements.
 | **Found By** | Nguyen The Anh |
 | **Found Date** | 11/06/2026 |
 | **Status** | Open |
+Enviroment:
+
+Browser: Chrome Version 148.0.7778.179
+OS: Window 11
+UI Language: English
 
 **Title:**
 Member can view borrow records of other members.
