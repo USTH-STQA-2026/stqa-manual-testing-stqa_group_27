@@ -1,5 +1,3 @@
-<img width="3840" height="1080" alt="image" src="https://github.com/user-attachments/assets/85966237-3c63-462d-8c28-5bf2ebe9fd4d" /># Bug Reports — Bug Report
-
 | Information | |
 | --- | --- |
 | **Group** | `Group 27` |
