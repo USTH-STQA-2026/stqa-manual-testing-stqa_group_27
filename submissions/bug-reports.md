@@ -16,11 +16,12 @@
 | **Found By** | Ngo Hai Huyen |
 | **Found Date** | 11/06/2026 |
 | **Status** | Open |
+
 Enviroment:
 
 Browser: Chrome Version 148.0.7778.179
-OS: Window 11
-UI Language: English
+OS: MacOS
+UI Language: Vietnamese
 
 
 **Title:**
@@ -58,11 +59,13 @@ Check number of borrowed books before creating new borrow record.
 | **Found By** | Do Thanh Tung |
 | **Found Date** | 11/06/2026 |
 | **Status** | Open |
+
+
 Enviroment:
 
 Browser: Chrome Version 148.0.7778.179
-OS: Window 11
-UI Language: English
+OS: MacOS
+UI Language: Vietnamese
 
 **Title:**
 Rejection message for borrowing does not display correct reason.
@@ -98,10 +101,11 @@ Separate error cases and display correct message according to SRS.
 | **Found By** | Nguyen Ngoc Trung |
 | **Found Date** | 11/06/2026 |
 | **Status** | Open |
+
 Enviroment:
 
 Browser: Chrome Version 148.0.7778.179
-OS: Window 11
+OS: MacOS
 UI Language: English
 
 **Title:**
@@ -138,6 +142,8 @@ Compare return date with dueDate and display corresponding warning.
 | **Found By** | Nguyen The Anh |
 | **Found Date** | 11/06/2026 |
 | **Status** | Open |
+
+
 Enviroment:
 
 Browser: Chrome Version 148.0.7778.179
@@ -178,12 +184,12 @@ Review logic for updating overdue status.
 | **Found By** | Duong Dinh Phong |
 | **Found Date** | 11/06/2026 |
 | **Status** | Open |
+
 Enviroment:
 
 Browser: Chrome Version 148.0.7778.179
 OS: Window 11
 UI Language: English
-
 **Title:**
 Cannot add new member with valid data.
 
@@ -219,6 +225,7 @@ Review member data saving process.
 | **Found By** | Duong Dinh Phong |
 | **Found Date** | 11/06/2026 |
 | **Status** | Open |
+
 Enviroment:
 
 Browser: Chrome Version 148.0.7778.179
@@ -260,12 +267,12 @@ Add email format validation according to SRS.
 | **Found By** | Do Thanh Tung |
 | **Found Date** | 11/06/2026 |
 | **Status** | Open |
+
 Enviroment:
 
 Browser: Chrome Version 148.0.7778.179
 OS: Window 11
 UI Language: English
-
 **Title:**
 Valid email is rejected when creating new member.
 
@@ -301,6 +308,7 @@ Review email format validation logic.
 | **Found By** | Nguyen Ngoc Trung |
 | **Found Date** | 11/06/2026 |
 | **Status** | Open |
+
 Enviroment:
 
 Browser: Chrome Version 148.0.7778.179
@@ -341,6 +349,8 @@ Display specific message according to SRS requirements.
 | **Found By** | Nguyen The Anh |
 | **Found Date** | 11/06/2026 |
 | **Status** | Open |
+
+
 Enviroment:
 
 Browser: Chrome Version 148.0.7778.179
