@@ -1,3 +1,4 @@
+[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/WBjeZ6BC)
 # STQA Library Manual Testing — Starter Template
 
 Bài tập thực hành **Kiểm thử thủ công (Manual Testing)** cho môn **Kiểm thử và Đảm bảo chất lượng phần mềm (STQA)**.
@@ -15,17 +16,17 @@ Hệ thống cần kiểm thử: **Quản lý mượn sách Thư viện ABC** �
 
 | | Thông tin |
 |---|---|
-| **Tên nhóm** | `<!-- VD: Nhóm 1 -->` |
-| **Lớp** | `<!-- VD: SE001.P11 -->` |
-| **Học kỳ** | `<!-- VD: HK2 2025-2026 -->` |
+| **Tên nhóm** | `Nhóm 27` |
+| **Lớp** | `ICT Class 1` |
+| **Học kỳ** | `HK2 2025-2026` |
 
 | # | MSSV | Họ và tên | Vai trò |
 |---|------|-----------|---------|
-| 1 | | | Nhóm trưởng |
-| 2 | | | Thành viên |
-| 3 | | | Thành viên |
-| 4 | | | Thành viên |
-
+| 1 |23BA14006|Nguyễn Thế Anh| Leader |
+| 2 |22BA13306|Nguyễn Ngọc Trung| Member |
+| 3 |23BA14313|Đỗ Thanh Tùng| Member |
+| 4 |23BA14228|Dương Đình Phong| Member |
+| 5 |23BA14143|Ngô Hải Huyền| Member |
 ---
 
 ## 📖 Trước khi bắt đầu — Đọc gì, ở đâu? / Before You Start
@@ -161,9 +162,7 @@ git push origin main
 | Câu hỏi thường gặp | [docs/faq.md](docs/faq.md) |
 
 ---
-
 ## ⚠️ Quy định quan trọng / Important Rules
-
 - **Không commit dữ liệu nhạy cảm** (token, mật khẩu cá nhân).
 - **Không sao chép bài nhóm khác** — mỗi nhóm phải có test case và bug report riêng.
 - **Mỗi thành viên nên commit ít nhất 1 lần** để thể hiện đóng góp.
